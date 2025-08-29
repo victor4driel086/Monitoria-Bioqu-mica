@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Material de Apoio — Monitoria de Bioquímica</title>
+  <meta name="description" content="Links úteis de bioquímica organizados por categoria: vídeos, PDFs, quizzes e resumos." />
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --card: #121923;
+      --text: #e7edf5;
+      --muted: #b9c3cf;
+      --accent: #7cd2ff;
+      --accent-2: #9cffc7;
+      --border: #223044;
+      --focus: #66a3ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+    }
+    *{box-sizing: border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -20%, #14304a 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 100% 0%, #1c3c3a 0%, transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+    header{
+      padding: 28px 18px 8px;
+      text-align:center;
+    }
+    .wrap{
+      width: min(980px, 92vw);
+      margin: 0 auto;
+    }
+    h1{
+      font-size: clamp(22px, 4vw, 34px);
+      margin: 8px 0 6px;
+      letter-spacing: 0.2px;
+    }
+    .subtitle{
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+    }
+    .toolbar{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin: 10px auto 22px;
+    }
+    .search{
+      flex: 1 1 340px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+    }
+    .search input{
+      flex:1;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, #122031, #0e1824);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      user-select:none;
+      transition: transform .05s ease;
+    }
+    .pill:active{ transform: scale(0.98); }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+    .card{
+      background: linear-gradient(180deg, #121a26, #0f1620);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      letter-spacing: .2px;
+    }
+    .card h3 .badge{
+      font-size:.74rem;
+      color: var(--bg);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing:.3px;
+    }
+    ul.links{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap: 10px;
+    }
+    .link{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      border: 1px solid var(--border);
+      background: #0c1420;
+      padding: 12px;
+      border-radius: 12px;
+      text-decoration:none;
+      color: var(--text);
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+    }
+    .link:hover{
+      transform: translateY(-1px);
+      border-color: #2c476a;
+      background: #0f1a2a;
+    }
+    .link .icon{ font-size: 1.25rem; line-height:1; }
+    .link .meta{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+    }
+    .link .title{ font-weight:600; }
+    .link .desc{ color: var(--muted); font-size: .92rem; }
+    footer{
+      margin-top:auto;
+      padding: 28px 18px 40px;
+      text-align:center;
+      color: var(--muted);
+      font-size:.92rem;
+    }
+    .small{
+      font-size:.9rem;
+      color: var(--muted);
+    }
+    a.inline{
+      color: var(--accent);
+      text-decoration:none;
+      border-bottom: 1px dashed rgba(124,210,255,.5);
+    }
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Material de Apoio — Monitoria de Bioquímica</h1>
+      <p class="subtitle">Monitora: Karen Vitória</p>
+      <div class="toolbar">
+        <label class="search" aria-label="Pesquisar recursos">
+          <span aria-hidden="true">🔎</span>
+          <input id="search" type="search" placeholder="Pesquisar por nome, tema ou categoria..." />
+        </label>
+        <button class="pill" data-filter="all" aria-pressed="true">✨ Tudo</button>
+        <button class="pill" data-filter="videos">🎥 Vídeos</button>
+        <button class="pill" data-filter="pdfs">📘 PDFs</button>
+        <button class="pill" data-filter="quizzes">🧪 Quizzes</button>
+        
+        
+      </div>
+    </div>
+  </header>
+<center>
+<p class="subtitle">Clique para abrir os recursos</p>
+</center>
+  <main class="wrap" id="cards">
+    <!-- Vídeos -->
+    <section class="card" data-cat="videos">
+      <h3>🎥 Vídeos <span class="badge">essenciais</span></h3>
+      <ul class="links">
+        <li>
+          
+        </li>
+        <li>
+          <a class="link" href="https://youtube.com/playlist?list=PLZ8b2peko_yshpjY5WCnd-T-kcAmoUh9y&si=hJs33q-QWMGCgy3_" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">▶️</span>
+            <span class="meta">
+              <span class="title">Playlist de Bioquímica — YouTube</span>
+              <span class="desc">Clique para ver Playlist</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+<p>
+    <!-- PDFs e Resumos -->
+    <section class="card" data-cat="pdfs">
+      <h3>📘 PDFs & Resumos</h3>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://drive.google.com/drive/folders/XXXXXXXX" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">📄</span>
+            <span class="meta">
+              <span class="title">Pasta de Resumos da Monitoria</span>
+              <span class="desc">Clique para ver resumos</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://drive.google.com/drive/folders/XXXXXXXX" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">📖</span>
+            <span class="meta">
+              <span class="title">
+Pasta de PDFs  –  Bioquímica</span>
+              <span class="desc">
+Clique para ver PDFs</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+<p>
+    <!-- Quizzes -->
+    <section class="card" data-cat="quizzes">
+      <h3>🧪 Quizzes</h3>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://surveymars.com/q/NFizXw5VB" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">🕹️</span>
+            <span class="meta">
+              <span class="title">QUIZ — Biomoléculas</span>
+              <span class="desc">Clique para jogar</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://surveymars.com/q/NFizXw5VB" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">🕹️</span>
+            <span class="meta">
+              <span class="title">QUIZ — Entrar</span>
+              <span class="desc">Clique para jogar</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+ㅤ
+ㅤ
+</p>
+  <center>
+    <div class="wrap">
+      <p class="small">• Dúvidas? Entre em contato pelo grupo ou de forma privada.</p>
+    </div>
+  </center>
+<p>ㅤ
+ㅤ
+
+
+  <script>
+    // Filtro por categorias
+    const pills = document.querySelectorAll('.pill');
+    const cards = document.querySelectorAll('section.card');
+    let active = 'all';
+
+    pills.forEach(btn => {
+      btn.addEventListener('click', () => {
+        active = btn.dataset.filter;
+        pills.forEach(b => b.setAttribute('aria-pressed', String(b===btn)));
+        cards.forEach(card => {
+          const show = active === 'all' || card.dataset.cat === active;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // Busca por texto (filtra links pelos títulos e descrições)
+    const search = document.getElementById('search');
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      // Mostra todos os cards da categoria ativa
+      cards.forEach(card => {
+        const showCard = active === 'all' || card.dataset.cat === active;
+        card.style.display = showCard ? '' : 'none';
+        if(!showCard) return;
+        // Filtra links dentro do card
+        const items = card.querySelectorAll('li');
+        let anyVisible = false;
+        items.forEach(li => {
+          const text = li.innerText.toLowerCase();
+          const visible = text.includes(q);
+          li.style.display = visible ? '' : 'none';
+          if(visible) anyVisible = true;
+        });
+        // Se nenhum link do card casar com a busca, oculta o card
+        if(q && !anyVisible){ card.style.display = 'none'; }
+      });
+    });
+
+    // Acessibilidade: Enter/Space nos botões "pill"
+    pills.forEach(btn => {
+      btn.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
